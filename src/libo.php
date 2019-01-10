@@ -1,17 +1,4 @@
 <?php
-
-// +----------------------------------------------------------------------
-// | ThinkAdmin
-// +----------------------------------------------------------------------
-// | 版权所有 2014~2017 广州楚才信息科技有限公司 [ http://www.cuci.cc ]
-// +----------------------------------------------------------------------
-// | 官方网站: http://think.ctolog.com
-// +----------------------------------------------------------------------
-// | 开源协议 ( https://mit-license.org )
-// +----------------------------------------------------------------------
-// | github开源项目：https://github.com/zoujingli/ThinkAdmin
-// +----------------------------------------------------------------------
-
 namespace app\api\controller;
 
 // 指定允许其他域名访问
@@ -25,12 +12,10 @@ header('Access-Control-Allow-Headers:x-requested-with,content-type');
  * @description 接口说明
  * @group 示例模块
  */
-class Daijiao extends Base
+class Libo extends Base
 {
 
-    public function initialize(){
-
-    }
+    public function initialize(){ }
 
     /**
      * @title 登录接口（示例）
