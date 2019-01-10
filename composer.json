@@ -14,10 +14,21 @@
     "autoload": {
         "psr-4": {
             "Libo\\": "src/"
-        }
+        },
+        "files": [
+            "src/helper.php"
+        ]
     },
     "require": {
         "php": ">=5.6.0",
         "topthink/framework": "^5.1"
+    },
+    "extra": {
+        "think-config": {
+            "doc": "src/config.php"
+        },
+        "think-application-api-controller": {
+            "Libo": "src/libo.php"
+        }
     }
 }
