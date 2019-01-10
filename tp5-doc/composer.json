@@ -1,0 +1,24 @@
+{
+    "name": "libo/tp5-doc",
+    "license": "MIT",
+    "keywords": ["thinkphp5", "libo", "tp5-doc"],
+    "homepage": "http://www.niubea.com",
+    "authors": [
+        {
+            "name": "libo",
+            "email": "libo@usa.com"
+        }
+    ],
+    "description": "just for tp5 make the api document auto.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Libo\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.6.0",
+        "topthink/framework": "^5.1"
+    },
+    "minimum-stability": "dev"
+}
