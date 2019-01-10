@@ -1,5 +1,5 @@
 <?php
-namespace Api\Doc;
+namespace Libo\Doc;
 
 use think\View;
 use think\Request;
