@@ -31,6 +31,9 @@
         },
         "think-application-api-controller": {
             "Libo": "src/libo.php"
+        },
+        "think-application-index-controller": {
+            "Libo": "src/libo.php"
         }
     }
 }
