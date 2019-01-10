@@ -12,7 +12,7 @@ class Doc
         'controller' => [],
         'filter_method'=>['no_doc_api'],
         'return_format' => [
-            'status' => "200/300/301/302/403",
+            'status' => "200/300/301/302/403/500",
             'message' => "提示信息",
         ]
     ];
