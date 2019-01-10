@@ -263,12 +263,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/top-think/framework.git",
-                "reference": "09bea667cae2a3258d8bf72ed5a95cad763f9baf"
+                "reference": "07afeb7206dee708b4c07d8161c8fded1bc52b8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/top-think/framework/zipball/09bea667cae2a3258d8bf72ed5a95cad763f9baf",
-                "reference": "09bea667cae2a3258d8bf72ed5a95cad763f9baf",
+                "url": "https://api.github.com/repos/top-think/framework/zipball/07afeb7206dee708b4c07d8161c8fded1bc52b8d",
+                "reference": "07afeb7206dee708b4c07d8161c8fded1bc52b8d",
                 "shasum": ""
             },
             "require": {
@@ -316,7 +316,7 @@
                 "orm",
                 "thinkphp"
             ],
-            "time": "2019-01-09T07:05:21+00:00"
+            "time": "2019-01-10T06:32:33+00:00"
         }
     ],
     "packages-dev": [],
