@@ -5,7 +5,7 @@ class Doc
 {
     protected  $config = [
         'title'=>'APi接口文档',
-        'version'=>'1.1.0',
+        'version'=>'1.1.1',
         'copyright'=>'Powered By www.niubea.com',
         'password' => 'www.niubea.com',
         'static_path' => '',

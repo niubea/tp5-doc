@@ -1,7 +1,7 @@
 <?php
 return [
     'title' => "APi接口文档",  //文档title
-    'version'=>'1.1.0', //文档版本
+    'version'=>'1.1.1', //文档版本
     'copyright'=>'Powered By www.niubea.com', //版权信息
     'password' => 'www.niubea.com', //访问密码，为空不需要密码
     //静态资源路径--默认为云上路径，解决很多人nginx配置问题
