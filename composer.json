@@ -23,11 +23,12 @@
         "php": ">=5.6.0",
         "topthink/framework": "^5.1",
         "topthink/think-helper": ">=1.0.4",
-        "topthink/think-installer": ">=1.0.10"
+        "libo/tpcomposer-copyextras": ">=1.0.0"
     },
     "extra": {
         "think-config": {
-            "doc": "src/config.php"
+            "doc": "src/config.php",
+            "doc2": "src/config.php"
         },
         "think-application-api-controller": {
             "Libo": "src/libo.php"

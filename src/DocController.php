@@ -54,7 +54,7 @@ class DocController
             $request = Request::instance();
         }
         $this->request = $request;
-        $this->assets_path = __DIR__.DS.'assets'.DS;
+        $this->assets_path = __DIR__.DS.'////////assets'.DS;
         $this->view_path = __DIR__.DS.'view'.DS;
         if(!defined('THINK_VERSION')){
             $this->doc = new Doc((array)\think\facade\Config::pull('doc'));
@@ -231,6 +231,12 @@ class DocController
      */
     public function getInfo($name = "")
     {
+        if($name=='common'){
+            return $this->show('common');
+        }
+        if($name=='first'){
+            return $this->show('first');
+        }
         list($class, $action) = explode("::", $name);
         $action_doc = $this->doc->getInfo($class, $action);
         if($action_doc)
