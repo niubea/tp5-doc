@@ -12,10 +12,10 @@
                 <h3>返回码</h3>
                 <table class="table table-striped" >
                     <tr><th>queryStatus</th><th>说明</th></tr>
-                    {volist name="doc.param" id="param"}
+                    {volist name="doc" id="param" key="k"}
                     <tr>
-                        <td>{$param.name|default="-"}</td>
-                        <td>{$param.desc|default="-"}</td>
+                        <td>{$key}</td>
+                        <td>{$param|default="-"}</td>
                     </tr>
                     {/volist}
                 </table>

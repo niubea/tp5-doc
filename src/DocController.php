@@ -86,8 +86,14 @@ class DocController
     {
         $pass = $this->doc->__get("password");
         if($pass){
-            if(session('pass') === md5($pass)){
-                return true;
+            if(session('pass')){
+                $aa=time()-(int)session('pass');
+                if($aa>3600){
+                    return false;
+                }else{
+                    session('pass', time());
+                    return true;
+                }
             }else{
                 return false;
             }
@@ -149,7 +155,7 @@ class DocController
     {
         $pass = $this->doc->__get("password");
         if($pass && $this->request->param('pass') === $pass){
-            session('pass', md5($pass));
+            session('pass', time());
             $data = ['status' => '200', 'message' => '登录成功'];
         }else if(!$pass){
             $data = ['status' => '200', 'message' => '登录成功'];
@@ -232,15 +238,15 @@ class DocController
     public function getInfo($name = "")
     {
         list($class, $action) = explode("::", $name);
+        if($action=='back'){
+            return $this->show('back', ['doc'=>$this->doc->__get('public_param_back')]);
+        }
         $action_doc = $this->doc->getInfo($class, $action);
         if($action_doc)
         {
             $return = $this->doc->formatReturn($action_doc);//var_dump($action_doc);var_dump($return);exit;
             $action_doc['header'] = isset($action_doc['header']) ? array_merge($this->doc->__get('public_header'), $action_doc['header']) : [];
             $action_doc['param'] = isset($action_doc['param']) ? array_merge($this->doc->__get('public_param'), $action_doc['param']) : [];
-            if($action=='back'){
-                return $this->show('back', ['doc'=>$action_doc, 'return'=>$return]);
-            }
             if($action=='first'){
                 $action_doc['result'] = isset($action_doc['result']) ? $action_doc['result'] : [];
                 return $this->show('first', ['doc'=>$action_doc, 'return'=>$return]);

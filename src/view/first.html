@@ -47,6 +47,9 @@
                     {/volist}
                 </table>
                 <br>
+                <h2>接口请求公共返回结果</h2>
+                <p><code id="json_text">{$return}</code></p>
+                <br>
                 <h2>接口通用返回说明</h2>
                 {volist name="doc.result" id="result"}
                 <h3>{$result.name|default="-"}</h3>
