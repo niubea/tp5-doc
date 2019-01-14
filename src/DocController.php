@@ -231,19 +231,20 @@ class DocController
      */
     public function getInfo($name = "")
     {
-        if($name=='common'){
-            return $this->show('common');
-        }
-        if($name=='first'){
-            return $this->show('first');
-        }
         list($class, $action) = explode("::", $name);
         $action_doc = $this->doc->getInfo($class, $action);
         if($action_doc)
         {
-            $return = $this->doc->formatReturn($action_doc);
+            $return = $this->doc->formatReturn($action_doc);//var_dump($action_doc);var_dump($return);exit;
             $action_doc['header'] = isset($action_doc['header']) ? array_merge($this->doc->__get('public_header'), $action_doc['header']) : [];
             $action_doc['param'] = isset($action_doc['param']) ? array_merge($this->doc->__get('public_param'), $action_doc['param']) : [];
+            if($action=='back'){
+                return $this->show('back', ['doc'=>$action_doc, 'return'=>$return]);
+            }
+            if($action=='first'){
+                $action_doc['result'] = isset($action_doc['result']) ? $action_doc['result'] : [];
+                return $this->show('first', ['doc'=>$action_doc, 'return'=>$return]);
+            }
             return $this->show('info', ['doc'=>$action_doc, 'return'=>$return]);
         }
     }

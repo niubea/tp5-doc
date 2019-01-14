@@ -7,74 +7,57 @@
 {block name="main"}
 <div class="container">
     <div class="jumbotron">
-        <p class="bg-success" style="font-size: 18px;">请求地址：http://test.wz.c8c88.com/</p>
+        <h2>请求地址</h2>
+        <p><h3>测试URL</h3>{$doc.qqdz1|default=""}</p>
+        <p><h3>正式URL</h3>{$doc.qqdz2|default=""}</p>
         <h2>文档说明</h2>
-        <p>为了保证数据安全性，客户端与服务器端api数据交互接口需要加入sign签名，签名形式以每个接口URL后需带一个sign字段，用来校验数据合法性。Sign签名是将客户端向服务器端传递的参数，加上一个密钥，然后进行md5加密（全小写），参数按照字母a-z顺序排序。</p>
-        <p><h3>密钥</h3></p>
-        <p><h3>key</h3>33#$59*8<@</p>
-        <p><h3>sign加密明文格式</h3>sign = MD5(url_encode(uri链接 + “?” + 参数) + 密钥KEY);</p>
-        <h3>举例</h3>
-        <p><h3>请求URL为</h3>https://chewu.buyzx.cn/api/daijiao/test.html?user=xxxxx&fuck=xxxx&time=1588888888</p>
-        <p><h3>签名sign应该是</h3>md5(urlencode(“https://chewu.buyzx.cn/api/daijiao/test.html?fuck=xxxx&time=1588888888&user=xxxxx”) + 密钥key)
-计算出来的值是一个全小写32位的字符串。</p>
+        <p>{$doc.wdsm|default=""}</p>
+        <h2>密钥</h2>
+        <p><h3>测试key</h3>{$doc.cskey|default=""}</p>
+        <p><h3>正式key</h3>{$doc.zskey|default=""}</p>
+        <h2>sign加密</h2>
+        <p><h3>sign</h3>{$doc.signgs|default=""}</p>
+        <h2>举例</h2>
+        <p><h3>请求URL为</h3>{$doc.qqlj|default=""}</p>
+        <p><h3>签名sign应该是</h3>{$doc.sign|default=""}</p>
         <br/>
         <div class="tab-content">
             <div class="tab-pane fade in active" id="info">
-                <h3>接口请求公共参数</h3>
-                <table class="table table-striped" >
-                    <tr><th>名称</th><th>类型</th><th>说明</th></tr>
-                    <tr>
-                        <td>time</td>
-                        <td>string</td>
-                        <td>当前时间戳，10位数字，参与签名</td>
-                    </tr>
-                    <tr>
-                        <td>version</td>
-                        <td>string</td>
-                        <td>接口版本详情 JSON，参与签名，示例：1.0</td>
-                    </tr>
-                    <tr>
-                        <td>sign</td>
-                        <td>string</td>
-                        <td>接口签名，MD5加密，加密规则参考1.2说明</td>
-                    </tr>
-                </table>
-                <br>
-                <h3>接口请求头</h3>
+                <h2>接口请求头</h2>
                 <table class="table table-striped" >
                     <tr><th>参数名字</th><th>类型</th><th>说明</th></tr>
+                    {volist name="doc.header" id="head"}
                     <tr>
-                        <td>Auth</td>
-                        <td>string</td>
-                        <td>登录或授权成功后接口返回的令牌</td>
+                        <td>{$head.name|default="-"}</td>
+                        <td>{$head.type|default="-"}</td>
+                        <td>{$head.desc|default="-"}</td>
                     </tr>
+                    {/volist}
                 </table>
                 <br>
-                <h3>接口通用返回说明</h3>
-                <p>未微信授权</p>
-                <p><code id="json_text">
-                    {<br>
-                      “state_code”: “40301”,<br>
-                      “state_desc”: “尚未微信授权或微信授权已过期” ,<br>
-                      “data”: {<br>
-                        “url”: “https://wx.qq.com/authorization?xxx”<br>
-                      }<br>
-                    }<br>
-                    （无需展示错误给用户）<br>
-                    url 用户未在微信上授权，需要重定向的链接
-                </code></p>
-                <p>未关注公众号</p>
-                <p><code id="json_text">
-                    {<br>
-                      “state_code”: “40302”,<br>
-                      “state_desc”: “尚未关注公众号，请先关注公众号” ,<br>
-                      “data”: {<br>
-                        “url”: “https://wx.qq.com/authorization?xxx”<br>
-                      }<br>
-                    }<br>
-                    （需要展示错误给用户）<br>
-                    url 用户未关注公众号，url为关注公众号的二维码<br>
-                </code></p>
+                <h2>接口请求公共参数</h2>
+                <table class="table table-striped" >
+                    <tr><th>名称</th><th>类型</th><th>说明</th></tr>
+                    {volist name="doc.param" id="param"}
+                    <tr>
+                        <td>{$param.name|default="-"}</td>
+                        <td>{$param.type|default="-"}</td>
+                        <td>{$param.desc|default="-"}</td>
+                    </tr>
+                    {/volist}
+                </table>
+                <br>
+                <h2>接口通用返回说明</h2>
+                {volist name="doc.result" id="result"}
+                <h3>{$result.name|default="-"}</h3>
+                <p>
+                    <code id="json_text">
+                        {$result.code|default="-"}
+                    </code>
+                </p>
+                <p>{$result.desc|default="-"}</p>
+                <br>
+                {/volist}
             </div>
         </div>
 </div>

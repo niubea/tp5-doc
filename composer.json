@@ -27,8 +27,7 @@
     },
     "extra": {
         "think-config": {
-            "doc": "src/config.php",
-            "doc2": "src/config.php"
+            "doc": "src/config.php"
         },
         "think-application-api-controller": {
             "Libo": "src/libo.php"

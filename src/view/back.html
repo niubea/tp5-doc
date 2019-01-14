@@ -12,66 +12,12 @@
                 <h3>返回码</h3>
                 <table class="table table-striped" >
                     <tr><th>queryStatus</th><th>说明</th></tr>
+                    {volist name="doc.param" id="param"}
                     <tr>
-                        <td>-1001</td>
-                        <td>请求参数错误</td>
+                        <td>{$param.name|default="-"}</td>
+                        <td>{$param.desc|default="-"}</td>
                     </tr>
-                    <tr>
-                        <td>-9999</td>
-                        <td>校验码错误</td>
-                    </tr>
-                    <tr>
-                        <td>-3003</td>
-                        <td>查询失败</td>
-                    </tr>
-                    <tr>
-                        <td>-2001</td>
-                        <td>两秒后再刷新</td>
-                    </tr>
-                    <tr>
-                        <td>-2002</td>
-                        <td>当前业务繁忙</td>
-                    </tr>
-                    <tr>
-                        <td>-1002</td>
-                        <td>非法车牌号</td>
-                    </tr>
-                    <tr>
-                        <td>-1010</td>
-                        <td>不支持当前车辆类型</td>
-                    </tr>
-                    <tr>
-                        <td>0</td>
-                        <td>查询失败</td>
-                    </tr>
-                    <tr>
-                        <td>-4003</td>
-                        <td>网络错误</td>
-                    </tr>
-                    <tr>
-                        <td>-4004</td>
-                        <td>系统维护中</td>
-                    </tr>
-                    <tr>
-                        <td>-4002</td>
-                        <td>系统错误</td>
-                    </tr>
-                    <tr>
-                        <td>-1012</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>-3007</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>-5001</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>-1008</td>
-                        <td></td>
-                    </tr>
+                    {/volist}
                 </table>
             </div>
         </div>

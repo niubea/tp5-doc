@@ -189,6 +189,7 @@ class Doc
             $class_doc = $doc->parse($doc_str);
             $class_doc['header'] = isset($class_doc['header'])? $class_doc['header'] : [];
             $class_doc['param'] = isset($class_doc['param']) ? $class_doc['param'] : [];
+            $class_doc['result'] = isset($class_doc['result']) ? $class_doc['result'] : [];
             if($reflection->hasMethod($action)) {
                 $method = $reflection->getMethod($action);
                 $doc = new DocParser();
@@ -196,6 +197,7 @@ class Doc
                 $action_doc['name'] = $class."::".$method->name;
                 $action_doc['header'] = isset($action_doc['header']) ? array_merge($class_doc['header'], $action_doc['header']) : $class_doc['header'];
                 $action_doc['param'] = isset($action_doc['param']) ? array_merge($class_doc['param'], $action_doc['param']) : $class_doc['param'];
+                $action_doc['result'] = isset($action_doc['result']) ? array_merge($class_doc['result'], $action_doc['result']) : $class_doc['result'];
             }
         }
         return $action_doc;
