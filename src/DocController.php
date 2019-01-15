@@ -184,6 +184,9 @@ class DocController
      */
     public function search()
     {
+        if($this->checkLogin()==false){
+            return redirect('doc/pass');
+        }
         if($this->request->isAjax())
         {
             $data = $this->doc->searchList($this->request->param('query'));
@@ -237,6 +240,9 @@ class DocController
      */
     public function getInfo($name = "")
     {
+        if($this->checkLogin()==false){
+            return redirect('doc/pass');
+        }
         list($class, $action) = explode("::", $name);
         if($action=='back'){
             return $this->show('back', ['doc'=>$this->doc->__get('public_param_back')]);

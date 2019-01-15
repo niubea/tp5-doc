@@ -9,7 +9,7 @@
 {/block}
 {block name="main"}
 <div class="zt_header">
-    {$title}
+    <div style="width: 200px;height: 60px;float: left;cursor:pointer;"onclick="nav()">{$title}</div>
     <span>{$version}</span>
     <!--<span class="zt_download">{$copyright}</span>-->
     {volist name="nav" id="nav" key="k"}
@@ -125,6 +125,11 @@
     function commoncode()
     {
 
+    }
+
+    function nav()
+    {
+        $("#index_tab > a").click();
     }
 
     function initHeight()
