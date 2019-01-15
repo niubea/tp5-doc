@@ -11,9 +11,12 @@
 <div class="zt_header">
     {$title}
     <span>{$version}</span>
-    <span class="zt_download">{$copyright}</span>
-    <span class="zt_download" style="cursor:pointer;" onclick="loadText('common','公共返回码','app\\api\\controller\\Doccommon::back')">公共返回码</span>
-    <span class="zt_download" style="cursor:pointer;" onclick="loadText('doc','接口文档','app\\api\\controller\\Doccommon::first')">接口文档</span>
+    <!--<span class="zt_download">{$copyright}</span>-->
+    {volist name="nav" id="nav" key="k"}
+    <span class="zt_download" style="cursor:pointer;" onclick="loadText('{$key}','{$key}','{$nav}')">{$key}</span>
+    {/volist}
+    <!--<span class="zt_download" style="cursor:pointer;" onclick="loadText('common','公共返回码','app\\api\\controller\\Doccommon::back')"><a>公共返回码</a></span>-->
+    <!--<span class="zt_download" style="cursor:pointer;" onclick="loadText('doc','接口文档','app\\api\\controller\\Doccommon::first')"><a>接口文档</a></span>-->
 </div>
 <div class="zt_main">
     <div class="zt_navi">

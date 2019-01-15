@@ -172,7 +172,7 @@ class DocController
     public function index()
     {
         if($this->checkLogin()){
-            return $this->show('index', ['doc' => $this->request->param('doc')]);
+            return $this->show('index', ['doc' => $this->request->param('doc'),'nav'=>$this->doc->__get('nav')]);
         }else{
             return redirect('doc/pass');
         }
