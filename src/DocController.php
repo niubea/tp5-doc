@@ -256,7 +256,7 @@ class DocController
             if(!array_key_exists($html_key, $html_config)) {
                 die("html_key NOT FOUND, please check the param and config/doc.php file.");
             }
-            return $this->show('html', ['html'=>$html_config[$html_key]]);
+            return $this->show('multi_html', ['html_content'=>$html_config[$html_key]]);
         }
         $action_doc = $this->doc->getInfo($class, $action);
         if($action_doc)
