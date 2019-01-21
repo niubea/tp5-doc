@@ -17,7 +17,11 @@
     7. doc.php里的controller指的是需要做文件的控制器类  
     8. 控制器类需要按既定的格式写，才会自动生成文档的。格式可以参考我提供的例子：src/libo.php  
     9. Doccommon.php 是公共文档说明部分，可以细看一下里面的代码。        
-      
+    
+   
+注意事项：    
+    1. 使用nginx的用户， 如果发现静态资源无法访问，你有两个选择，要么将src下的assets目录复制到public/static里，然后修改config/doc.php里的static_path；要么就修改nginx.conf，将.js,.css,.png,.jpg等这些静态资源的重写规则删掉。
+       
  更新日志：  
  v2.3  
     更新了多处bug  
