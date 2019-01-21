@@ -4,11 +4,23 @@
 {block name="head"}{/block}
 <body>
 <style>
-    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
         padding: 8px 16px;
         line-height: 1.42857143;
         vertical-align: top;
         border: 1px solid #ddd;
+    }
+    .table-striped>tbody>tr {
+    background: #f4f4f4
+    }
+    .table-striped>tbody>tr:nth-of-type(odd) {
+    background: #f4f4f4
+    }
+    .table-striped>tbody>tr:nth-child(1) {
+    	background: #fff;
+    }
+    .table {
+        box-shadow: 0 0 20px #aaa;
     }
 </style>
 {block name="main"}{/block}
