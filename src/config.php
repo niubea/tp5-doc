@@ -3,7 +3,7 @@
 date_default_timezone_set("Asia/Shanghai");
 return [
     'title' => "APi接口文档",  //文档title
-    'version'=>'1.5', //文档版本
+    'version'=>'1.6', //文档版本
     'copyright'=>'Powered By '.$_SERVER['HTTP_HOST'], //版权信息
     'password' => 'www.niubea.com', //访问密码，为空不需要密码
     //静态资源路径--默认为云上路径，解决很多人nginx配置问题
@@ -41,10 +41,10 @@ return [
     ],
     'public_param_back' => [
         //公共返回参数
-        '-1001'=>"请求参数错误",
-        '-9999'=>"校验码错误",
         '10000'=>"操作成功",
-        '-5001'=>"",
-        '-1008'=>"",
+        '20000'=>"操作成功，并执行完成",
+        '40001'=>"该功能已下架",
+        '40301'=>"签名错误",
+        '50001'=>"参数错误",
     ],
 ];
