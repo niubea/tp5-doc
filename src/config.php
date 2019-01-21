@@ -47,4 +47,26 @@ return [
         '40301'=>"签名错误",
         '50001'=>"参数错误",
     ],
+    'public_param_html' => [
+        'queryStatus_DESC' => '<div class="tab-content">
+                <div class="tab-pane fade in active" id="info">
+                    <h3>queryStatus返回码说明</h3>
+                    <table class="table table-striped">
+                        <tbody><tr><th>code</th><th>说明</th></tr>
+                                            <tr>
+                            <td><span style="color:red">100</span></td>
+                            <td><span style="color:red">操作成功</span></td>
+                        </tr>
+                                            <tr>
+                            <td><span style="color:red">200</span></td>
+                            <td><span style="color:red">支付成功</span></td>
+                        </tr>
+                                            <tr>
+                            <td>-99</td>
+                            <td>参数错误</td>
+                        </tr>
+                                        </tbody></table>
+                </div>
+            </div>'
+    ],
 ];
