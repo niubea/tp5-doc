@@ -1,16 +1,15 @@
-
 <?php
 date_default_timezone_set("Asia/Shanghai");
 return [
     'title' => "APi接口文档",  //文档title
-    'version'=>'1.6', //文档版本
-    'copyright'=>'Powered By '.$_SERVER['HTTP_HOST'], //版权信息
+    'version'=>'1.6', //接口文档版本
+    'copyright'=>'Powered By www.niubea.com', //版权信息
     'password' => 'www.niubea.com', //访问密码，为空不需要密码
     //静态资源路径--默认为云上路径，解决很多人nginx配置问题
     //可将assets目录拷贝到public下面，具体路径课自行配置
     'static_path' => '',
     'controller' => [
-        //需要生成文档的类
+        //需要生成文档的控制器类
         'app\api\controller\Libo',
     ],
     'nav' => [
@@ -19,16 +18,17 @@ return [
         '公共返回码'=>"app\api\controller\Doccommon::back",
     ],
     'filter_method' => [
-        //过滤 不解析的方法名称
-        'no_doc_api'
+        //过滤 不解析的方法名称 不需要文档的接口
+        "initialize",
+        'no_doc_api',
     ],
     'return_format' => [
-        //数据格式
+        //公共返回数据格式
         'code' => "返回码。<a href='/doc/info?name=app\api\controller\Doccommon::back'>查看返回码说明</a>",
         'msg' => "提示信息",
     ],
     'public_header' => [
-        //全局公共头部参数
+        //全局公共请求头部参数
         //如：['name'=>'version', 'require'=>1, 'default'=>'', 'desc'=>'版本号(全局)']
         ['name'=>'Auth', 'type'=>'string', 'require'=>1, 'default'=>'', 'desc'=>'登录或授权成功后接口返回的令牌']
     ],
@@ -40,7 +40,7 @@ return [
         ['name'=>'sign', 'type'=>'string', 'require'=>1, 'default'=>'', 'other'=>'' ,'desc'=>'接口签名，MD5加密，加密规则参考1.2说明']
     ],
     'public_param_back' => [
-        //公共返回参数
+        //全局公共返回参数
         '10000'=>"操作成功",
         '20000'=>"操作成功，并执行完成",
         '40001'=>"该功能已下架",
@@ -48,6 +48,7 @@ return [
         '50001'=>"参数错误",
     ],
     'public_param_html' => [
+        //遇到想自定义html的却又不想再创建一个页面模板的话，就在这里定义一个html，链接是：/doc/info?name=libo::html&html_key=queryStatus_DESC 最后的这个queryStatus_DESC就是下面的那个键。
         'queryStatus_DESC' => '<div class="tab-content">
                 <div class="tab-pane fade in active" id="info">
                     <h3>queryStatus返回码说明</h3>
