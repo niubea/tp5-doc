@@ -248,8 +248,15 @@ class DocController
             return $this->show('back', ['doc'=>$this->doc->__get('public_param_back')]);
         }
         if($action=='html'){
-            $html_num = @$_REQUEST["html_num"] == "" ? 0 : @$_REQUEST["html_num"];
-            return $this->show('html', ['html'=>$this->doc->__get('public_param_html')][$html_num]);
+            $html_key = @$_REQUEST["html_key"];
+            $html_config = $this->doc->__get('public_param_html');
+            if(!is_array($html_config)) {
+                die("please check config/doc.php file contains the public_param_html attribute.");
+            }
+            if(!array_key_exists($html_key, $html_config)) {
+                die("html_key NOT FOUND, please check the param and config/doc.php file.");
+            }
+            return $this->show('html', ['html'=>$html_config[$html_key]]);
         }
         $action_doc = $this->doc->getInfo($class, $action);
         if($action_doc)
