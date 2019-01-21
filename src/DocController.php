@@ -247,6 +247,10 @@ class DocController
         if($action=='back'){
             return $this->show('back', ['doc'=>$this->doc->__get('public_param_back')]);
         }
+        if($action=='html'){
+            $html_num = @$_REQUEST["html_num"] == "" ? 0 : @$_REQUEST["html_num"];
+            return $this->show('html', ['html'=>$this->doc->__get('public_param_html')][$html_num]);
+        }
         $action_doc = $this->doc->getInfo($class, $action);
         if($action_doc)
         {

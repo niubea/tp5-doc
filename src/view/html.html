@@ -1,0 +1,28 @@
+{extend name="base" /}
+
+{block name="head"}
+<link href='{$static}/css/json.css' rel='stylesheet' type='text/css'>
+<script src="{$static}/js/json.js" type="text/javascript"></script>
+{/block}
+{block name="main"}
+<style>
+</style>
+<div class="container" style="margin-top: 50px;">
+    <div class="jumbotron">
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="info">
+                {$html}
+                <!-- <h3>返回码</h3>
+                <table class="table table-striped" >
+                    <tr><th>code</th><th>说明</th></tr>
+                    {volist name="doc" id="param" key="k"}
+                    <tr>
+                        <td>{$key}</td>
+                        <td>{$param|default="-"}</td>
+                    </tr>
+                    {/volist}
+                </table> -->
+            </div>
+        </div>
+    </div>
+</div>
