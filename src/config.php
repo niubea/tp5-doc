@@ -2,7 +2,7 @@
 date_default_timezone_set("Asia/Shanghai");
 return [
     'title' => "APi接口文档",  //文档title
-    'version'=>'1.6', //接口文档版本
+    'version'=>'1.0', //接口文档版本
     'copyright'=>'Powered By www.niubea.com', //版权信息
     'password' => 'www.niubea.com', //访问密码，为空不需要密码
     //静态资源路径--默认为云上路径，解决很多人nginx配置问题
@@ -24,7 +24,7 @@ return [
     ],
     'return_format' => [
         //公共返回数据格式
-        'code' => "返回码。<a href='/doc/info?name=app\api\controller\Doccommon::back'>查看返回码说明</a>",
+        'code' => "返回码。<a href='' onclick=\"parent.loadText('公共返回码','公共返回码','app\\api\\controller\\Doccommon::back')\">查看返回码说明</a>",
         'msg' => "提示信息",
     ],
     'public_header' => [
