@@ -35,8 +35,8 @@ class Doccommon
      * @cskey 您的密钥请填写在这里
      * @zskey 正式的密钥填写在这里
      * @signgs sign = MD5(url_encode(uri链接 + “?” + 参数) + 密钥KEY);
-     * @qqlj https://xxxx.xxx.com/api/daijiao/test.html?user=xxxxx&fuck=xxxx&time=1588888888
-     * @sign md5(urlencode(“https://xxxx.xxx.com/api/daijiao/test.html?fuck=xxxx&time=1588888888&user=xxxxx”) + 密钥key)
+     * @qqlj https://xxxx.xxx.com/api/libo/login.html?user=xxxxx&password=xxxx&time=1588888888
+     * @sign md5(urlencode(“https://xxxx.xxx.com/api/libo/login.html?password=xxxx&time=1588888888&user=xxxxx”) + 密钥key)
     计算出来的值是一个全小写32位的字符串。
      *
      * @result name:未微信授权 code:｛<br>&nbsp;&nbsp;“code”:“40301”,<br>&nbsp;&nbsp;“msg”:“尚未微信授权或微信授权已过期”,<br>&nbsp;&nbsp;“data”:{<br>&nbsp;&nbsp;&nbsp;&nbsp;“url”:“https://wx.qq.com/authorization?xxx”<br>&nbsp;&nbsp;}<br>｝ desc:（无需展示错误给用户）<br>url：用户未在微信上授权，需要重定向的链接
