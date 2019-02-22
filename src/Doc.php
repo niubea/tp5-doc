@@ -190,6 +190,7 @@ class Doc
             $class_doc['header'] = isset($class_doc['header'])? $class_doc['header'] : [];
             $class_doc['param'] = isset($class_doc['param']) ? $class_doc['param'] : [];
             $class_doc['result'] = isset($class_doc['result']) ? $class_doc['result'] : [];
+            $class_doc['return_extra'] = isset($class_doc['return_extra']) ? $class_doc['return_extra'] : [];
             if($reflection->hasMethod($action)) {
                 $method = $reflection->getMethod($action);
                 $doc = new DocParser();
@@ -198,6 +199,7 @@ class Doc
                 $action_doc['header'] = isset($action_doc['header']) ? array_merge($class_doc['header'], $action_doc['header']) : $class_doc['header'];
                 $action_doc['param'] = isset($action_doc['param']) ? array_merge($class_doc['param'], $action_doc['param']) : $class_doc['param'];
                 $action_doc['result'] = isset($action_doc['result']) ? array_merge($class_doc['result'], $action_doc['result']) : $class_doc['result'];
+                $action_doc['return_extra'] = isset($action_doc['return_extra']) ? array_merge($class_doc['return_extra'], $action_doc['return_extra']) : $class_doc['return_extra'];
             }
         }
         return $action_doc;
@@ -255,8 +257,25 @@ class Doc
         foreach ($data as $name=>$value) {
             $json .= '&nbsp;&nbsp;"'.$name.'":'.$value.',<br>';
         }
+        if(isset($doc['return_extra'])){
+            $json .= '&nbsp;&nbsp;"extra":{<br/>';
+            $returns = isset($doc['return_extra']) ? $doc['return_extra'] : [];
+            //print_r($returns);
+            
+            foreach ($returns as $val)
+            {
+                list($name, $value) =  explode(":", trim($val));
+                if(strpos($value, '@') != false){
+                    $json .= $this->string2jsonArray($doc, $val, '&nbsp;&nbsp;&nbsp;&nbsp;');
+                }else{
+                    $json .= '&nbsp;&nbsp;&nbsp;&nbsp;' . $this->string2json(trim($name), $value);
+                }
+            }
+            $json .= '&nbsp;&nbsp;}<br/>';
+        }
         $json .= '&nbsp;&nbsp;"data":{<br/>';
         $returns = isset($doc['return']) ? $doc['return'] : [];
+            //print_r($returns);exit;
         foreach ($returns as $val)
         {
             list($name, $value) =  explode(":", trim($val));

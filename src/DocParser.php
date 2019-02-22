@@ -75,7 +75,7 @@ class DocParser
         if ($param == 'class')
             list ( $param, $value ) = $this->formatClass ( $value );
 
-        if($param == 'return' || $param == 'param' || $param == 'header' || $param == 'result'){
+        if($param == 'return' || $param == 'param' || $param == 'header' || $param == 'result' || $param == 'return_extra'){
             $this->params [$param][] = $value;
         }else if (empty ( $this->params [$param] )) {
             $this->params [$param] = $value;
